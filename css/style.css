@@ -3239,6 +3239,12 @@ input[type="button"].btn-block {
 .tab-content > .active {
   display: block; }
 
+.chat {
+  height: 400px; 
+  overflow-x: hidden;
+  overflow-y: scroll; 
+}
+
 .navbar {
   position: relative;
   display: -webkit-box;
