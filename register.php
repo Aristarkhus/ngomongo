@@ -79,7 +79,8 @@
                   <input type="password" name="confPassword" id="confPasswd" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3" placeholder="Confirm Password"><br>
 
                   <label>Foto</label><br>
-                  <input type="file" name="foto" id="foto" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"><br><br>
+                  <input type="file" name="gambar" id="gambar" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3" style="border: hidden;"><br><br>
+
                   <input type="submit" name="submit" value="Register" class="btn btn-primary p-3 px-xl-4 py-xl-3">
 
                 </form>

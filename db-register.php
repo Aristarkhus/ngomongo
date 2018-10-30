@@ -3,15 +3,15 @@
 	require 'db-connect.php';
 
 	//cek data terisi gak
-	if ($_POST['username'] && $_POST['email'] && $_POST['password'] && $_POST['confPassword'] && $_FILES['foto']['name']) {
+	if ($_POST['username'] && $_POST['email'] && $_POST['password'] && $_POST['confPassword'] && $_FILES['gambar']['name']) {
 		if (($_POST['password'] != $_POST['confPassword'])) {
 			header('location:register.php?err=3');
 		} else {
 		$email = $_POST['email'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$uploadFile = "Foto/".$_FILES["foto"]["name"];
-		if (move_uploaded_file($_FILES["foto"]["tmp_name"], $uploadFile)) {
+		$uploadFile = "Foto/".$_FILES["gambar"]["name"];
+		if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $uploadFile)) {
 
 		}else{
 
