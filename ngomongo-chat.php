@@ -69,15 +69,6 @@
               <input name="search" type="text" placeholder="Search" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><button class="btn btn-primary p-3 px-xl-4 py-xl-3" >Search</button>
               <br><br>
 
-              <?php 
-                if (isset($_POST['search'])) {
-                    $result = mysqli_query($con, "SELECT * FROM mobil WHERE Nama_mobil LIKE '%".$_POST['search']."%'");
-                  }else{
-                    $result = mysqli_query($con, "SELECT * FROM mobil");
-                    //$sql = 'SELECT * FROM pelanggan LIMIT $mulai, $halaman';
-                  }
-               ?>
-
 
               <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Chat</a>
@@ -88,41 +79,40 @@
               </div><br>
             
               <div class="tab-content ftco-animate" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">  
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>Alvin</span></h3>
-                      </div>
-                      <div class="d-block">
-                        <p>opo e risss.. syuu...</p>
-                      </div>
-                    </div>
-                  </div>
+                <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
 
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>Alvin</span></h3>
-                      </div>
-                      <div class="d-block">
-                        <p>opo e risss.. syuu...</p>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-Alvin-tab" data-toggle="pill" href="#v-pills-Alvin" role="tab" aria-controls="v-pills-Alvin" aria-selected="true">
 
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>Alvin</span></h3>
+                      <div class="pricing-entry d-flex ftco-animate">
+                        <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
+                        <div class="desc pl-3">
+                          <div class="d-flex align-items-center">
+                            <h3><span>Alvin</span></h3>
+                          </div>
+                          <div class="d-block">
+                            <p>opo e risss.. syuu...</p>
+                          </div>
+                        </div>
                       </div>
-                      <div class="d-block">
-                        <p>opo e risss.. syuu...</p>
+
+                    </a>
+                    <a class="nav-link" id="v-pills-Burhan-tab" data-toggle="pill" href="#v-pills-Burhan" role="tab" aria-controls="v-pills-Burhan" aria-selected="false">
+
+                      <div class="pricing-entry d-flex ftco-animate">
+                        <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
+                        <div class="desc pl-3">
+                          <div class="d-flex align-items-center">
+                            <h3><span>Burhan</span></h3>
+                          </div>
+                          <div class="d-block">
+                            <p>ocie cie cie</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+
+                    </a>
+
                   </div>
                 </div>  
 
@@ -190,79 +180,65 @@
             </div>
 
             <div class="col-12 col-sm-6 col-md-8">
-              <div class="row">
-                <div class="col-md-12 right-header-contentChat" id="style-13">
-                  <ul>
-                    <li>
-                      <div class="rightside-left-chat">
-                        <span><i class="fa fa-circle" aria-hidden="true"></i> Jack <small>10:00 AM,Today</small> </span><br><br>
-                        <p>LHA PIYE ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-right-chat">
-                        <span> <small>10:00 AM,Today</small>  Intan <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>
-                        <p>piye ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-left-chat">
-                        <span><i class="fa fa-circle" aria-hidden="true"></i> Jack <small>10:00 AM,Today</small> </span><br><br>
-                        <p>LHA PIYE ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-right-chat">
-                        <span> <small>10:00 AM,Today</small>  Intan <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>
-                        <p>piye ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-left-chat">
-                        <span><i class="fa fa-circle" aria-hidden="true"></i> Jack <small>10:00 AM,Today</small> </span><br><br>
-                        <p>LHA PIYE ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-right-chat">
-                        <span> <small>10:00 AM,Today</small>  Intan <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>
-                        <p>piye ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-left-chat">
-                        <span><i class="fa fa-circle" aria-hidden="true"></i> Jack <small>10:00 AM,Today</small> </span><br><br>
-                        <p>LHA PIYE ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-right-chat">
-                        <span> <small>10:00 AM,Today</small>  Intan <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>
-                        <p>piye ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-left-chat">
-                        <span><i class="fa fa-circle" aria-hidden="true"></i> Jack <small>10:00 AM,Today</small> </span><br><br>
-                        <p>LHA PIYE ?</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="rightside-right-chat">
-                        <span> <small>10:00 AM,Today</small>  Intan <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>
-                        <p>piye ?</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 btn right-chat-textbox right-chat-outline-textbox">
-                  <input type="text"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                </div>
-              </div> 
-            </div>
 
+              <div class="tab-content" id="v-pills-tabContent">
+                
+                <div class="tab-pane fade show active" id="v-pills-Alvin" role="tabpanel" aria-labelledby="v-pills-Alvin-tab">
+                  <div class="row">
+                    <div class="col-md-12 right-header-contentChat" id="style-13">
+                      <ul>
+                        <li>
+                          <div class="rightside-left-chat">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i> Jack <small>10:00 AM,Today</small> </span><br><br>
+                            <p>LHA PIYE ?</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="rightside-right-chat">
+                            <span> <small>10:00 AM,Today</small>  Intan <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>
+                            <p>piye ?</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 btn right-chat-textbox right-chat-outline-textbox">
+                      <input type="text"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div> 
+                </div>
+
+
+                <div class="tab-pane fade" id="v-pills-Burhan" role="tabpanel" aria-labelledby="v-pills-Burhan-tab">
+                  <div class="row">
+                    <div class="col-md-12 right-header-contentChat" id="style-13">
+                      <ul>
+                        <li>
+                          <div class="rightside-left-chat">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i> Burhan <small>10:00 AM,Today</small> </span><br><br>
+                            <p>LHA PIYE ?</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="rightside-right-chat">
+                            <span> <small>10:00 AM,Today</small>  Intan <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>
+                            <p>piye ?</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 btn right-chat-textbox right-chat-outline-textbox">
+                      <input type="text"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div> 
+                </div> 
+                
+              </div>
+
+            </div>
 
           </div>
 	      </div>
