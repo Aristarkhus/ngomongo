@@ -66,8 +66,19 @@
         <div class="container">
           <div class="row">
             <div class="col-6 col-md-4 chat" id="style-13">
-              <input type="text" placeholder="Search" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><button class="btn btn-primary p-3 px-xl-4 py-xl-3">Search</button>
+              <input name="search" type="text" placeholder="Search" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><button class="btn btn-primary p-3 px-xl-4 py-xl-3" >Search</button>
               <br><br>
+
+              <?php 
+                if (isset($_POST['search'])) {
+                    $result = mysqli_query($con, "SELECT * FROM mobil WHERE Nama_mobil LIKE '%".$_POST['search']."%'");
+                  }else{
+                    $result = mysqli_query($con, "SELECT * FROM mobil");
+                    //$sql = 'SELECT * FROM pelanggan LIMIT $mulai, $halaman';
+                  }
+               ?>
+
+
               <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Chat</a>
 
@@ -153,42 +164,27 @@
                   </div>  
                 </div>
 
+
                 <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab"> 
+                <?php 
+                  $query = mysqli_query($con, "SELECT * FROM akun");
+                  while($row = mysqli_fetch_assoc($query)){
+                 ?>
                   <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
+                    <div class="img" style="background-image: url(images/akun-1.jpg);">
+                    </div>
                     <div class="desc pl-3">
                       <div class="d-flex align-items-center">
-                        <h3><span>Abednego</span></h3>
+                        <h3><span><?php echo $row['username'] ?></span></h3>
                       </div>
                       <div class="d-block">
                         <p>Online / Offline</p>
                       </div>
                     </div>
                   </div>
-
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>Abednego</span></h3>
-                      </div>
-                      <div class="d-block">
-                        <p>Online / Offline</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>Abednego</span></h3>
-                      </div>
-                      <div class="d-block">
-                        <p>Online / Offline</p>
-                      </div>
-                    </div>
-                  </div>                        
+                <?php 
+                  }
+                 ?>                                         
                 </div>
               </div>
             </div>
@@ -270,7 +266,7 @@
 
           </div>
 	      </div>
-	    </div>
+	    </div><
   	</section>
 
 
