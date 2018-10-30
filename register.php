@@ -1,4 +1,4 @@
-<?php  
+<?php
   session_start();
   require "db-connect.php";
   if (isset($_SESSION["cekUser"]) && isset($_SESSION["cekLogin"])) {
@@ -18,14 +18,14 @@
     <title>Ngomong'o | Salam aspal gronjal</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -65,19 +65,25 @@
 
             <div class="col-md-7 col-sm-12 ftco-animate">
             	<h1 class="mb-3 mt-5 bread">Register</h1>
-                <form method="POST" action="db-register.php">
+                <form method="POST" action="db-register.php" enctype='multipart/form-data'>
                   <label>Username</label><br>
                   <input type="text" name='username' id="username" placeholder="Username" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><br>
+
                   <label>E-mail</label><br>
                   <input type="text" name='email' id="email" placeholder="E-Mail" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><br>
 
                   <label>Password</label><br>
                   <input type="password" name="password" id="passwd" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3" placeholder="Password"><br>
+
                   <label>Confirm Password</label><br>
-                  <input type="password" name="confPassword" id="confPasswd" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3" placeholder="Confirm Password"><br><br>
+                  <input type="password" name="confPassword" id="confPasswd" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3" placeholder="Confirm Password"><br>
+
+                  <label>Foto</label><br>
+                  <input type="file" name="foto" id="foto" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"><br><br>
                   <input type="submit" name="submit" value="Register" class="btn btn-primary p-3 px-xl-4 py-xl-3">
+
                 </form>
-                
+
             </div>
 
           </div>
@@ -98,8 +104,8 @@
         </div>
       </div>
     </footer>
-    
-  
+
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -122,19 +128,20 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>
 
-<?php 
+<?php
   if(isset($_REQUEST['err'])){
     $error = $_REQUEST['err'];
     if($error == 1)
       echo "<script> alert('Data masih ada yang kosong!');</script>";
-    else{
-      if ($error==2) {
+    else if ($error==2) {
         echo "<script> alert('Username sudah dipakai. Silakan menggunakan username lain');</script>";
       }
+    else if ($error==3) {
+       echo "<script> alert('confirm password tidak sesuai!');</script>";
     }
   }
  ?>
