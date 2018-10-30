@@ -1,3 +1,8 @@
+<?php  
+  session_start();
+  require "db-connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,38 +32,68 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <!--#e83e8c-->
   </head>
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <img src="images/logos.png">
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="sign-in.html" class="nav-link">Sign In</a></li>
-	        </ul>
-	      </div>
-		</div>
+		      <img src="images/logos.png">
+          <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="sign-in.php" class="nav-link">Sign In</a></li>
+          </ul>
+        </div>
+		  </div>
 	  </nav>
     <!-- END nav -->
 
     <section class="home-slider owl-carousel img" style="background-image: url(images/bg_1.jpg);">
+      <div class="slider-item">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-6 col-sm-12 ftco-animate">
+            	<img src="images/name.png">
+              <p class="mb-4 mb-md-5">Salam aspal gronjal.</p>
+              <p><a href="sign-in.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
+            </div>
+            <div class="col-md-6 ftco-animate">
+            	<img src="images/bg_1.png" class="img-fluid" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-6 col-sm-12 order-md-last ftco-animate">
+            	<img src="images/name.png">
+              <p class="mb-4 mb-md-5">Salam aspal gronjal.</p>
+              <p><a href="sign-in.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
+            </div>
+            <div class="col-md-6 ftco-animate">
+            	<img src="images/bg_2.png" class="img-fluid" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
 
       <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
       	<div class="overlay"></div>
         <div class="container">
-          <div class="row slider-text justify-content-center align-items-center">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
-            <div class="col-md-7 col-sm-12 ftco-animate">
-            	<h1 class="mb-3 mt-5 bread">Sign In</h1>
-
-                <form action="ngomongo-chat.html" method="POST">
-                    <input type="text" name='username' id="" placeholder="Username" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><br>
-                    <input type="password" name="password" id="" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3" placeholder="Password"><br><br>
-                    <input type="submit" name="submit" value="Sign In" class="btn btn-primary p-3 px-xl-4 py-xl-3">
-                </form>
-                <br>
-                <p id="">Belum punya akun? Daftar <a href="register.html">DISINI</a> !</p>
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<img src="images/name.png">
+              <p class="mb-4 mb-md-5">Salam aspal gronjal.</p>
+              <p><a href="sign-in.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
             </div>
 
           </div>
@@ -66,12 +101,12 @@
       </div>
     </section>
 
-
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
+
             <p>
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
             </p>

@@ -1,3 +1,17 @@
+<?php  
+  session_start();
+  require "db-connect.php";
+  if (isset($_SESSION["cekUser"]) && isset($_SESSION["cekLogin"])) {
+    //kondisi login
+    $username = $_SESSION["cekUser"];
+    $status = $_SESSION["cekLogin"];
+  }else{
+    //kondisi belum login
+    $username="";
+    $status=0;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,8 +48,8 @@
 	      <img src="images/logos.png">
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="register.html" class="nav-link">Register</a></li>
+	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="register.php" class="nav-link">Register</a></li>
 	        </ul>
 	      </div>
 		</div>
@@ -51,7 +65,7 @@
 
             <div class="col-md-7 col-sm-12 ftco-animate">
             	<h1 class="mb-3 mt-5 bread">Register</h1>
-                <form method="POST" action="sign-in.html" id="">
+                <form method="POST" action="db-register.php">
                   <label>Username</label><br>
                   <input type="text" name='username' id="username" placeholder="Username" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><br>
                   <label>E-mail</label><br>
@@ -111,3 +125,16 @@
     
   </body>
 </html>
+
+<?php 
+  if(isset($_REQUEST['err'])){
+    $error = $_REQUEST['err'];
+    if($error == 1)
+      echo "<script> alert('Data masih ada yang kosong!');</script>";
+    else{
+      if ($error==2) {
+        echo "<script> alert('Username sudah dipakai. Silakan menggunakan username lain');</script>";
+      }
+    }
+  }
+ ?>
