@@ -1,3 +1,17 @@
+<?php  
+  session_start();
+  require "db-connect.php";
+  if (isset($_SESSION["cekUser"]) && isset($_SESSION["cekLogin"])) {
+    //kondisi login
+    $username = $_SESSION["cekUser"];
+    $status = $_SESSION["cekLogin"];
+  }else{
+    //kondisi belum login
+    $username="";
+    $status=0;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,10 +49,10 @@
 		      <img src="images/logos.png">
           <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index-signin.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="ngomongo-chat.html" class="nav-link">Obrolan</a></li>
-            <li class="nav-item"><a href="ngomongo-chat.html" class="nav-link">Abdng00</a></li>
-            <li class="nav-item"><a href="index.html" class="nav-link">Log Out</a></li>
+            <li class="nav-item active"><a href="index-signin.php" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="ngomongo-chat.php" class="nav-link">Obrolan</a></li>
+            <li class="nav-item"><a href="ngomongo-chat.php" class="nav-link"><?php echo $username ?></a></li>
+            <li class="nav-item"><a href="log-out.php" class="nav-link">Log Out</a></li>
           </ul>
         </div>
 		  </div>

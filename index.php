@@ -57,7 +57,7 @@
             <div class="col-md-6 col-sm-12 ftco-animate">
             	<img src="images/name.png">
               <p class="mb-4 mb-md-5">Salam aspal gronjal.</p>
-              <p><a href="sign-in.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
+              <p><a href="sign-in.php" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.php" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
             </div>
             <div class="col-md-6 ftco-animate">
             	<img src="images/bg_1.png" class="img-fluid" alt="">
@@ -75,7 +75,7 @@
             <div class="col-md-6 col-sm-12 order-md-last ftco-animate">
             	<img src="images/name.png">
               <p class="mb-4 mb-md-5">Salam aspal gronjal.</p>
-              <p><a href="sign-in.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
+              <p><a href="sign-in.php" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.php" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
             </div>
             <div class="col-md-6 ftco-animate">
             	<img src="images/bg_2.png" class="img-fluid" alt="">
@@ -93,7 +93,7 @@
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
             	<img src="images/name.png">
               <p class="mb-4 mb-md-5">Salam aspal gronjal.</p>
-              <p><a href="sign-in.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
+              <p><a href="sign-in.php" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sign In</a> <a href="register.php" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Register</a></p>
             </div>
 
           </div>

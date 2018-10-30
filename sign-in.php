@@ -63,7 +63,7 @@
                     <input type="submit" name="submit" value="Sign In" class="btn btn-primary p-3 px-xl-4 py-xl-3">
                 </form>
                 <br>
-                <p id="">Belum punya akun? Daftar <a href="register.html">DISINI</a> !</p>
+                <p id="">Belum punya akun? Daftar <a href="register.php">DISINI</a> !</p>
             </div>
 
           </div>
