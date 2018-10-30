@@ -80,10 +80,8 @@
             
               <div class="tab-content ftco-animate" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
-
                   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-Alvin-tab" data-toggle="pill" href="#v-pills-Alvin" role="tab" aria-controls="v-pills-Alvin" aria-selected="true">
-
+                    <a class="nav-link" id="v-pills-Alvin-tab" data-toggle="pill" href="#v-pills-Alvin" role="tab" aria-controls="v-pills-Alvin" aria-selected="false">
                       <div class="pricing-entry d-flex ftco-animate">
                         <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
                         <div class="desc pl-3">
@@ -95,10 +93,8 @@
                           </div>
                         </div>
                       </div>
-
                     </a>
                     <a class="nav-link" id="v-pills-Burhan-tab" data-toggle="pill" href="#v-pills-Burhan" role="tab" aria-controls="v-pills-Burhan" aria-selected="false">
-
                       <div class="pricing-entry d-flex ftco-animate">
                         <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
                         <div class="desc pl-3">
@@ -110,71 +106,66 @@
                           </div>
                         </div>
                       </div>
-
                     </a>
-
                   </div>
                 </div>  
 
-                <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">  
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>FTI UKDW</span></h3>
+                <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link" id="v-pills-FTI-tab" data-toggle="pill" href="#v-pills-FTI" role="tab" aria-controls="v-pills-FTI" aria-selected="false">  
+                      <div class="pricing-entry d-flex ftco-animate">
+                        <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
+                        <div class="desc pl-3">
+                          <div class="d-flex align-items-center">
+                            <h3><span>FTI</span></h3>
+                          </div>
+                          <div class="d-block">
+                            <p>64 Member</p>
+                          </div>
+                        </div>
                       </div>
-                      <div class="d-block">
-                        <p>64 Member</p>
+                    </a>
+                    <a class="nav-link" id="v-pills-UKDW-tab" data-toggle="pill" href="#v-pills-UKDW" role="tab" aria-controls="v-pills-UKDW" aria-selected="false"> 
+                      <div class="pricing-entry d-flex ftco-animate">
+                        <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
+                        <div class="desc pl-3">
+                          <div class="d-flex align-items-center">
+                            <h3><span>UKDW'18</span></h3>
+                          </div>
+                          <div class="d-block">
+                            <p>342 Member</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>DESPRO'16</span></h3>
-                      </div>
-                      <div class="d-block">
-                        <p>101 Member</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);"></div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span>UKDW'18</span></h3>
-                      </div>
-                      <div class="d-block">
-                        <p>342 Member</p>
-                      </div>
-                    </div>
+                    </a>
                   </div>  
                 </div>
 
 
-                <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab"> 
-                <?php 
-                  $query = mysqli_query($con, "SELECT * FROM akun");
-                  while($row = mysqli_fetch_assoc($query)){
-                 ?>
-                  <div class="pricing-entry d-flex ftco-animate">
-                    <div class="img" style="background-image: url(images/akun-1.jpg);">
-                    </div>
-                    <div class="desc pl-3">
-                      <div class="d-flex align-items-center">
-                        <h3><span><?php echo $row['username'] ?></span></h3>
+                <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">  
+                  <?php 
+                    $query = mysqli_query($con, "SELECT * FROM akun");
+                    while($row = mysqli_fetch_assoc($query)){
+                   ?>
+                    <?php echo '<a class="nav-link" id="v-pills-'.$row['username'].'-tab" data-toggle="pill" href="#v-pills-'.$row['username'].'" role="tab" aria-controls="v-pills-'.$row['username'].'" aria-selected="false">' ?>
+                      <div class="pricing-entry d-flex ftco-animate">
+                        <div class="img" style="background-image: url(images/akun-1.jpg);">
+                        </div>
+                        <div class="desc pl-3">
+                          <div class="d-flex align-items-center">
+                            <h3><span><?php echo $row['username'] ?></span></h3>
+                          </div>
+                          <div class="d-block">
+                            <p>Online / Offline</p>
+                          </div>
+                        </div>
                       </div>
-                      <div class="d-block">
-                        <p>Online / Offline</p>
-                      </div>
-                    </div>
-                  </div>
-                <?php 
-                  }
-                 ?>                                         
+                    </a>
+                  <?php 
+                    }
+                   ?> 
+                  </div>                                        
                 </div>
               </div>
             </div>
@@ -183,7 +174,7 @@
 
               <div class="tab-content" id="v-pills-tabContent">
                 
-                <div class="tab-pane fade show active" id="v-pills-Alvin" role="tabpanel" aria-labelledby="v-pills-Alvin-tab">
+                <div class="tab-pane fade" id="v-pills-Alvin" role="tabpanel" aria-labelledby="v-pills-Alvin-tab">
                   <div class="row">
                     <div class="col-md-12 right-header-contentChat" id="style-13">
                       <ul>
@@ -235,7 +226,7 @@
                     </div>
                   </div> 
                 </div> 
-                
+
               </div>
 
             </div>

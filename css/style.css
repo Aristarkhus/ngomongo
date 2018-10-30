@@ -7977,10 +7977,6 @@ h1, h2, h3, h4, h5,
       background: #121618;
       background: url(../images/bg_4.jpg) no-repeat fixed;
       font-size: 16px; }
-    .pricing-entry:hover {
-      background-color: #E53188;
-      color: #fff;
-    }
 
 @media (max-width: 991.98px) {
   .ftco-menu .f-menu-img {
