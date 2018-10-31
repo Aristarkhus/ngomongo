@@ -70,18 +70,18 @@
         socket.on('kirim_pesan', (data) => {
             //$('#obrolan').append('<div><b>'+data.nama+'</b>: <i>'+data.isi+'</i></div>');
 
-            $('#obrolan').append('<li>'+
+            /*$('#obrolan').append('<li>'+
                   '<div class="rightside-left-chat">'+
                     '<span><i class="fa fa-circle" aria-hidden="true"></i> '+data.nama+' <small>10:00 AM,Today</small> </span><br><br>'+
                     '<p>'+data.isi+'</p>'+
                   '</div>'+
-                '</li>');
+                '</li>');*/
 
-            /*if (data.nama != <?php echo $username ?> ) {
+            if (data.nama != <?php echo "'".$username."'" ?> ) {
                  $('#obrolan').append('<li>'+
                   '<div class="rightside-left-chat">'+
                     '<span><i class="fa fa-circle" aria-hidden="true"></i> '+data.nama+' <small>10:00 AM,Today</small> </span><br><br>'+
-                    '<p>'+data.pesan+'</p>'+
+                    '<p>'+data.isi+'</p>'+
                   '</div>'+
                 '</li>');
 
@@ -89,10 +89,10 @@
                 $('#obrolan').append('<li>'+
                   '<div class="rightside-right-chat">'+
                       '<span> <small>10:00 AM,Today</small> '+data.nama+' <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>'+
-                      '<p>'+data.pesan+'</p>'+
+                      '<p>'+data.isi+'</p>'+
                     '</div>'+
                   '</li>');
-            }*/
+            }
         });
       });
       
@@ -225,6 +225,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-12 btn right-chat-textbox right-chat-outline-textbox">
+                      <input id="nama" type="hidden" <?php echo 'value="'.$username.'"' ?>></input>
                       <input type="text" id="pesan">
                       <a id="kirim"><i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </div>
