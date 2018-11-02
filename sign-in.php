@@ -6,10 +6,16 @@
 <script>
 	function getSocket(){
 		var socket = io.connect('http://localhost:3000');
-		var socketID = socket.io.engine.id;
-		document.signin.socket.value = socketID;
-    alert(socketID);
+		//var socketID = socket.io.engine.id;
+		//document.signin.socket.value = socketID;
+    //alert(socketID);
+    var jvalue = 'lalala';
+
+    <?php $abc = "<script>document.write(jvalue)</script>"?>
 	};
+
+
+
 </script>
 
 <!DOCTYPE html>
@@ -71,7 +77,7 @@
             	<h1 class="mb-3 mt-5 bread">Sign In</h1>
 
                 <form action="db-signin.php" method="POST" name="signin" id="signin">
-                    <input type="hidden" name="socket" id="socket" value="">
+                    <?php echo '<input type="hidden" name="socket" id="socket" value="'.$abc.'">'; ?>
                     <input type="text" name='username' id="" placeholder="Username" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"></input><br>
                     <input type="password" name="password" id="" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3" placeholder="Password"><br><br>
                     <input type="submit" name="submit" value="Sign In" class="btn btn-primary p-3 px-xl-4 py-xl-3">
