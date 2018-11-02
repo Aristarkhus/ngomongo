@@ -16,87 +16,11 @@
 <html lang="en">
   <head>
     <title>Ngomongo | Salam aspal gronjal</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" type="text/css" href="fonts/fontawesome-free-5.0.7/web-fonts-with-css/css/fontawesome-all.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-    <script>
-      $(function(){
-        var socket = io.connect('http://localhost:3000');
-
-          //mengirim data ke server
-          $('#kirim').click(function(){
-            /*socket.emit('kirim_nama',{name: $('#nama').val()});
-            $('#nama').val('');*/
-
-            socket.emit('kirim_pesan',{isi: $('#pesan').val(), nama: $('#nama').val()});
-            $('#pesan').val('');
-            $('#nama').val('');  
-          });
-
-          //menerima data dari server
-          /*socket.on('kirim_nama', (data) => {
-            $('#obrolan').append('<div><b>'+data.name+'</b>');
-        });*/
-
-        socket.on('kirim_pesan', (data) => {
-            //$('#obrolan').append('<div><b>'+data.nama+'</b>: <i>'+data.isi+'</i></div>');
-
-            /*$('#obrolan').append('<li>'+
-                  '<div class="rightside-left-chat">'+
-                    '<span><i class="fa fa-circle" aria-hidden="true"></i> '+data.nama+' <small>10:00 AM,Today</small> </span><br><br>'+
-                    '<p>'+data.isi+'</p>'+
-                  '</div>'+
-                '</li>');*/
-
-            if (data.nama != <?php echo "'".$username."'" ?> ) {
-                 $('#obrolan').append('<li>'+
-                  '<div class="rightside-left-chat">'+
-                    '<span><i class="fa fa-circle" aria-hidden="true"></i> '+data.nama+' <small>10:00 AM,Today</small> </span><br><br>'+
-                    '<p>'+data.isi+'</p>'+
-                  '</div>'+
-                '</li>');
-
-            }else {
-                $('#obrolan').append('<li>'+
-                  '<div class="rightside-right-chat">'+
-                      '<span> <small>10:00 AM,Today</small> '+data.nama+' <i class="fa fa-circle" aria-hidden="true"></i></span><br><br>'+
-                      '<p>'+data.isi+'</p>'+
-                    '</div>'+
-                  '</li>');
-            }
-        });
-      });
-      
-    </script>
+    <?php 
+        require "head.php";
+     
+        require "webSocket.php";
+     ?>
 
   </head>
   <body>
@@ -187,10 +111,18 @@
                 <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
                   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">  
                   <?php 
+                    $noContact = 1000;
+                    
                     $query = mysqli_query($con, "SELECT * FROM akun");
                     while($row = mysqli_fetch_assoc($query)){
-                   ?>
-                    <?php echo '<a class="nav-link" id="v-pills-'.$row['username'].'-tab" data-toggle="pill" href="#v-pills-'.$row['username'].'" role="tab" aria-controls="v-pills-'.$row['username'].'" aria-selected="false">' ?>
+                  
+                      if ($row['username'] == $username) {
+                        continue;
+                      } else {
+                        
+                        echo '<a class="nav-link" id="v-pills-'.$noContact.'-tab" data-toggle="pill" href="#v-pills-'.$noContact.'" role="tab" aria-controls="v-pills-'.$noContact.'" aria-selected="false">';
+                        $noContact++;
+                        ?>
                       <div class="pricing-entry d-flex ftco-animate">
                         <div class="img" style="background-image: url(images/akun-1.jpg);">
                         </div>
@@ -204,9 +136,11 @@
                         </div>
                       </div>
                     </a>
-                  <?php 
+                  <?php
+                      } 
                     }
-                   ?> 
+                   ?>
+                   
                   </div>                                        
                 </div>
               </div>
@@ -220,6 +154,7 @@
                   <div class="row">
                     <div class="col-md-12 right-header-contentChat" id="style-13">
                       <ul id="obrolan">
+
                       </ul>
                     </div>
                   </div>
@@ -232,6 +167,34 @@
                   </div> 
                 </div>
 
+                <?php 
+                    $noChat = 1000;
+                    $query = mysqli_query($con, "SELECT * FROM akun");
+                    while($row = mysqli_fetch_assoc($query)){ 
+
+                    echo '
+                <div class="tab-pane fade" id="v-pills-'.$noChat.'" role="tabpanel" aria-labelledby="v-pills-'.$noChat.'-tab">';
+                    $noChat++;
+                ?>
+                  <div class="row">
+                    <div class="col-md-12 right-header-contentChat" id="style-13">
+                      <ul id="obrolan">
+
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 btn right-chat-textbox right-chat-outline-textbox">
+                      <input id="nama" type="hidden" <?php echo 'value="'.$username.'"' ?>></input>
+                      <input type="text" id="pesan">
+                      <a id="kirim"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                  </div> 
+                </div>
+                <?php 
+                  }
+                 ?>
+
               </div>
 
             </div>
@@ -239,53 +202,12 @@
           </div>
 	      </div>
 	    </div><
-  	</section>
-
-
-    <footer class="ftco-footer ftco-section img">
-    	<div class="overlay"></div>
-      <div class="container">
-        
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+  	</section>  
     
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      var height = $(window).height();
-      $('.left-chat').css('height', (height - 92) + 'px');
-      $('.right-header-contentChat').css('height', (height - 133) + 'px');
-    });
-  </script>
+  <?php
+    require "footer.php";
+    require "tail.php";
+   ?>
     
   </body>
 </html>
