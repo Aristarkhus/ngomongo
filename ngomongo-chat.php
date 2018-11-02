@@ -50,15 +50,15 @@
 
 
               <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Chat</a>
+                <a class="nav-link" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Chat</a>
 
                 <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Grup</a>
 
-                <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Contact</a>
+                <a class="nav-link active" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Contact</a>
               </div><br>
             
               <div class="tab-content ftco-animate" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+                <div class="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
                   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link" id="v-pills-Alvin-tab" data-toggle="pill" href="#v-pills-Alvin" role="tab" aria-controls="v-pills-Alvin" aria-selected="false">
                       <div class="pricing-entry d-flex ftco-animate">
@@ -108,11 +108,10 @@
                 </div>
 
 
-                <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+                <div class="tab-pane fade show active" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
                   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">  
                   <?php 
-                    $noContact = 1000;
-                    
+              
                     $query = mysqli_query($con, "SELECT * FROM akun");
                     while($row = mysqli_fetch_assoc($query)){
                   
@@ -120,12 +119,15 @@
                         continue;
                       } else {
                         
-                        echo '<a class="nav-link" id="v-pills-'.$noContact.'-tab" data-toggle="pill" href="#v-pills-'.$noContact.'" role="tab" aria-controls="v-pills-'.$noContact.'" aria-selected="false">';
-                        $noContact++;
+                        echo '<a class="nav-link" id="v-pills-'.$row['username'].'-tab" data-toggle="pill" href="#v-pills-'.$row['username'].'" role="tab" aria-controls="v-pills-'.$row['username'].'" aria-selected="false">';
+                       
                         ?>
                       <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(images/akun-1.jpg);">
-                        </div>
+                        <?php 
+                            echo "<div class='img' style='background-image: url(Foto/".$row['username'].".jpg);'>
+                        </div>";
+                         ?>
+                        
                         <div class="desc pl-3">
                           <div class="d-flex align-items-center">
                             <h3><span><?php echo $row['username'] ?></span></h3>
@@ -168,13 +170,16 @@
                 </div>
 
                 <?php 
-                    $noChat = 1000;
+                    
                     $query = mysqli_query($con, "SELECT * FROM akun");
                     while($row = mysqli_fetch_assoc($query)){ 
+                      if ($row['username'] == $username) {
+                        continue;
+                      } else {
 
                     echo '
-                <div class="tab-pane fade" id="v-pills-'.$noChat.'" role="tabpanel" aria-labelledby="v-pills-'.$noChat.'-tab">';
-                    $noChat++;
+                <div class="tab-pane fade" id="v-pills-'.$row['username'].'" role="tabpanel" aria-labelledby="v-pills-'.$row['username'].'-tab">';
+                    
                 ?>
                   <div class="row">
                     <div class="col-md-12 right-header-contentChat" id="style-13">
@@ -192,6 +197,7 @@
                   </div> 
                 </div>
                 <?php 
+                    }
                   }
                  ?>
 

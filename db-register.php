@@ -10,7 +10,7 @@
 		$email = $_POST['email'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$uploadFile = "Foto/".$_FILES["gambar"]["name"];
+		$uploadFile = "Foto/".$username.".jpg";
 		if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $uploadFile)) {
 
 		}else{
