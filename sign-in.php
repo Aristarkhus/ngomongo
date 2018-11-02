@@ -6,12 +6,11 @@
 <script>
 	function getSocket(){
 		var socket = io.connect('http://localhost:3000');
-		//var socketID = socket.io.engine.id;
-		//document.signin.socket.value = socketID;
-    //alert(socketID);
-    var jvalue = 'lalala';
-
-    <?php $abc = "<script>document.write(jvalue)</script>"?>
+    socket.on('connect', function() {
+      var sessionid = socket.socket.sessionid;
+      <?php $abc = "<script>document.write(sessionid)</script>"?>
+    });
+		
 	};
 
 
