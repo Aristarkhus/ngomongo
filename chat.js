@@ -33,6 +33,7 @@ io.on('connect', (socket) => {
 	console.log('1 user terhubung '+ socket.id);
 	client.push(socket.id);
 	var sessionid = socket.id;
+	io.sockets.emit('kirimID', {id: socket.id});
 	/*socket.on('kirim_nama',(data) => {
 		console.log(data.name);
 		io.sockets.emit('kirim_nama', {name: data.name});
