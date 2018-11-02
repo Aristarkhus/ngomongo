@@ -2,7 +2,7 @@
 	session_start();
 	require 'db-connect.php';
 
-	if ($_POST["username"] && $_POST["password"]) {
+	if ($_POST["username"] && $_POST["password"] && $_POST["socket"]) {
 		$username = $_POST["username"];
 		$password = $_POST["password"];
 
@@ -13,7 +13,7 @@
 		if($id_arr){
 			$cekPass = mysqli_query($con, "SELECT * FROM akun WHERE id ='".$id_arr['id']."'");
 			$pass_arr = mysqli_fetch_assoc($cekPass);
-			if ($pass_arr['pass'] == hash('sha256', $password)) {	
+			if ($pass_arr['pass'] == hash('sha256', $password)) {
 				$_SESSION["cekLogin"] = 1;
 				$_SESSION["cekUser"] = $username;
 					header('location:ngomongo-chat.php');
